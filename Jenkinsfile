@@ -4,7 +4,7 @@ pipeline {
         // Création image
         stage('Création de  image docker') {
             steps {
-                sh 'docker build -t cv_mezghich .'
+                sh 'docker build -t cv_tbui .'
             }
             post {
                 success {
@@ -16,10 +16,10 @@ pipeline {
             }
         }
 
-          // Création image
+          // Création container
         stage('Lancer un container de cette image') {
             steps {
-                sh 'docker run -d -p 8081:80 cv_mezghich_cont cv_mezghich'
+                sh 'docker run -d -p 8081:80 cv_tbui_cont cv_tbui'
             }
             post {
                 success {
