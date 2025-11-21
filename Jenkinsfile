@@ -6,7 +6,7 @@ pipeline {
         // Configuration Email
         EMAIL_RECIPIENTS = 'huyenhtd@gmail.com'
         EMAIL_FROM = '"Jenkins CI/CD" <jenkins-ci@smart-it-partner.com>'
-        DOCKERHUB_CREDENTIALS = credentials('docker_test')
+        DOCKERHUB_CREDENTIALS = credentials('huyenmy44_dockerhub')
     }
       stages{
 
