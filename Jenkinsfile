@@ -19,7 +19,7 @@ pipeline {
           // Création container
         stage('Lancer un container de cette image') {
             steps {
-                sh 'docker run -d -p 8081:80 cv_tbui_cont cv_tbui'
+                sh 'docker run -d -p 8081:89 cv_tbui_cont cv_tbui'
             }
             post {
                 success {
