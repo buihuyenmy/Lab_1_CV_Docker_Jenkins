@@ -6,6 +6,7 @@ pipeline {
         // Configuration Email
         EMAIL_RECIPIENTS = 'huyenhtd@gmail.com'
         EMAIL_FROM = '"Jenkins CI/CD" <jenkins-ci@smart-it-partner.com>'
+        DOCKERHUB_CREDENTIALS = credentials('docker_test')
     }
       stages{
 
@@ -53,6 +54,24 @@ pipeline {
                 }
             }
         }
+            // // Pousser ver dockerhub
+        stage('Etape 3 : Tag and push image to dockerhub de huyenmy44') {
+                     steps {
+                         echo "tag and push image ..."
+                         sh "docker tag cv_tbui huyenmy44/cg_cv"
+                         sh "docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
+                         sh "docker push huyenmy44/cg_cv"
+                         sh "docker logout"
+                     }
+                     post {
+                         success {
+                             echo "====++++success++++===="
+                         }
+                         failure {
+                             echo "====++++failed++++===="
+                         }
+                     }
+          }
       }
 
       post {
