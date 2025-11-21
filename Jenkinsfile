@@ -5,8 +5,8 @@ pipeline {
         // Supprimer container
         stage('Etape 1: Arreter containers') {
             steps {
-                sh 'docker stop cv_tbui_cont || true' 
-                sh 'docker rm cv_tbui_cont  || true'
+        
+                sh 'docker rm -f cv_tbui_cont  || true'
             }
             post {
                 success {
